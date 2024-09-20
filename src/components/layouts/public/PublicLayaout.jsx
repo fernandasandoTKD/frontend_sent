@@ -1,6 +1,8 @@
-import { Outlet } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
 import { HeaderPub } from './HeaderPub';
+import useAuth from '../../../hooks/useAuth';
 
+const { auth } = useAuth();
 export const PublicLayout = () => {
   return (
     <>
@@ -8,7 +10,11 @@ export const PublicLayout = () => {
       <HeaderPub />
       {/* Contenido Principal */}
       <section className='layout__content'>
-        <Outlet />
+        { !auth._id ? 
+          <Outlet />
+          : 
+          <Navigate to="/rsocial"/>
+        }
       </section>
     </>
   )
