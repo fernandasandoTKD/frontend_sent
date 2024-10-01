@@ -2,8 +2,9 @@ import { Navigate, Outlet } from 'react-router-dom';
 import { HeaderPub } from './HeaderPub';
 import useAuth from '../../../hooks/useAuth';
 
-const { auth } = useAuth();
+
 export const PublicLayout = () => {
+  const { auth } = useAuth();
   return (
     <>
       {/* Menú de Navegación Principal */}
